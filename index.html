@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bé Luyện Phát Âm Chuẩn</title>
+    <style>
+        /* Thiết kế giao diện tươi vui, hoạt hình cho học sinh tiểu học */
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #fffae6; /* Màu nền vàng kem nhẹ nhàng, kích thích thị giác */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 24px; /* Bo góc tròn đáng yêu */
+            box-shadow: 0 8px 24px rgba(255, 154, 60, 0.2);
+            border: 4px solid #ffcc00; /* Viền vàng nổi bật như hộp quà */
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff6f00; /* Chữ màu cam rực rỡ */
+            font-size: 2.3rem; /* Chữ tiêu đề siêu to */
+            text-shadow: 2px 2px 0px #ffeaa7;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+            background-color: #f0faff; /* Nền xanh mây dịu mát */
+            padding: 20px;
+            border-radius: 16px;
+            border: 3px dashed #3498db;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+            background: #cbdadb;
+            display: inline-block;
+            padding: 6px 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 0 #95a5a6;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card-pair {
+            display: flex;
+            justify-content: space-around;
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 20px 10px;
+            border-radius: 16px;
+            box-shadow: 0 6px 0 #e0e0e0;
+        }
+
+        .single-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 45%;
+        }
+
+        /* Khung chứa hình ảnh minh họa hoạt hình */
+        .illustration {
+            width: 110px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 3px solid #f1c40f;
+            background-color: #fff;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Thiết kế nút bấm chữ SIÊU TO, nổi bật */
+        .word {
+            cursor: pointer;
+            font-size: 2.2rem; /* Kích thước chữ rất lớn, dễ nhìn */
+            font-weight: bold;
+            padding: 10px 25px;
+            border-radius: 50px; /* Nút bo tròn hình quả trứng */
+            background: linear-gradient(135deg, #fff3b0 0%, #caefff 100%);
+            color: #2c3e50;
+            transition: all 0.1s ease;
+            user-select: none;
+            border: 3px solid #3498db;
+            box-shadow: 0 5px 0 #2980b9; /* Hiệu ứng 3D như đồ chơi */
+            text-align: center;
+            width: 80%;
+        }
+
+        /* Hiệu ứng khi rê chuột vào nút */
+        .word:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #ffcc00 0%, #ff6f00 100%);
+            color: white;
+            border-color: #ffcc00;
+            box-shadow: 0 7px 0 #d35400;
+        }
+
+        /* Hiệu ứng khi nhấn nút */
+        .word:active {
+            transform: translateY(5px);
+            box-shadow: none;
+        }
+
+        .meaning {
+            font-size: 1.1rem;
+            color: #555;
+            font-style: italic;
+            margin-top: 8px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .vs-text {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🎈 BÉ LUYỆN PHÁT ÂM CHUẨN VUI NHỘN 🎈</h1>
+
+    <!-- NHÓM 1: CH vs TR -->
+    <div class="section">
+        <center><h2 class="section-title">1. Bé phân biệt "ch" và "tr"</h2></center>
+        <div class="example-grid">
+            <div class="card-pair">
+                <!-- Từ CHA -->
+                <div class="single-card">
+                    <img class="illustration" src="https://img.icons8.com/illustrations/officel/160/family.png" alt="cha mẹ">
+                    <span class="word" onclick="playAudio('cha.aac')">cha 🔊</span>
+                    <span class="meaning">cha mẹ</span>
+                </div>
+                
+                <div class="vs-text">với</div>
+
+                <!-- Từ TRA -->
+                <div class="single-card">
+                    <img class="illustration" src="https://img.icons8.com/illustrations/officel/160/seed.png" alt="tra hạt">
+                    <span class="word" onclick="playAudio('tra.aac')">tra 🔊</span>
+                    <span class="meaning">tra hạt</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NHÓM 2: D vs GI -->
+    <div class="section">
+        <center><h2 class="section-title">2. Bé phân biệt "d" và "gi"</h2></center>
+        <div class="example-grid">
+            <div class="card-pair">
+                <!-- Từ DA -->
+                <div class="single-card">
+                    <img class="illustration" src="https://img.icons8.com/illustrations/officel/160/face-id.png" alt="làn da">
+                    <span class="word" onclick="playAudio('da.aac')">da 🔊</span>
+                    <span class="meaning">làn da</span>
+                </div>
+                
+                <div class="vs-text">với</div>
+
+                <!-- Từ GIA -->
+                <div class="single-card">
+                    <img class="illustration" src="https://img.icons8.com/illustrations/officel/160/home.png" alt="gia đình">
+                    <span class="word" onclick="playAudio('gia.aac')">gia 🔊</span>
+                    <span class="meaning">gia đình</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NHÓM 3: L vs N -->
+    <div class="section">
+        <center><h2 class="section-title">3. Bé phân biệt "l" và "n"</h2></center>
+        <div class="example-grid">
+            <div class="card-pair">
+                <!-- Từ LA -->
+                <div class="single-card">
+                    <img class="illustration" src="https://img.icons8.com/illustrations/officel/160/megaphone.png" alt="hét la">
+                    <span class="word" onclick="playAudio('la.aac')">la 🔊</span>
+                    <span class="meaning">hét la</span>
+                </div>
+                
+                <div class="vs-text">với</div>
+
+                <!-- Từ NA -->
+                <div class="single-card">
+                    <img class="illustration" src="https://img.icons8.com/illustrations/officel/160/strawberry.png" alt="quả na">
+                    <span class="word" onclick="playAudio('na.aac')">na 🔊</span>
+                    <span class="meaning">quả na</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Hàm kích hoạt phát file âm thanh đuôi .aac gốc của giáo viên
+    function playAudio(audioFile) {
+        const audio = new Audio(audioFile);
+        audio.play().catch(function(error) {
+            alert("Ôi! Máy chưa tìm thấy file âm thanh chuẩn '" + audioFile + "'. Anh/chị hãy kiểm tra lại xem đã tải file này lên GitHub chưa nhé!");
+        });
+    }
+</script>
+
+</body>
+</html>
