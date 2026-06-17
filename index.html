@@ -3,155 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bé Luyện Phát Âm Chuẩn</title>
+    <title>Bé luyện phát âm</title>
     <style>
-        /* Thiết kế giao diện tươi vui, hoạt hình cho học sinh tiểu học */
+        /* Giao diện hoạt hình, rực rỡ và chuyển động sinh động cho học sinh tiểu học */
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #fffae6; /* Màu nền vàng kem nhẹ nhàng, kích thích thị giác */
+            background-color: #fffae6; /* Màu nền vàng kem ngọt ngào */
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
+            position: relative;
+            overflow-x: hidden;
         }
 
+        /* Khung chứa nội dung chính */
         .container {
             max-width: 800px;
             width: 100%;
             background: #ffffff;
             padding: 30px;
-            border-radius: 24px; /* Bo góc tròn đáng yêu */
-            box-shadow: 0 8px 24px rgba(255, 154, 60, 0.2);
-            border: 4px solid #ffcc00; /* Viền vàng nổi bật như hộp quà */
+            border-radius: 30px; /* Bo góc tròn siêu dễ thương */
+            box-shadow: 0 12px 28px rgba(255, 154, 60, 0.25);
+            border: 5px solid #ffcc00; /* Viền vàng nổi bật như hộp quà */
+            position: relative;
+            z-index: 10;
         }
 
+        /* Tiêu đề chính hiệu ứng chữ bong bóng */
         h1 {
             text-align: center;
-            color: #ff6f00; /* Chữ màu cam rực rỡ */
-            font-size: 2.3rem; /* Chữ tiêu đề siêu to */
-            text-shadow: 2px 2px 0px #ffeaa7;
-            margin-bottom: 30px;
-        }
-
-        .section {
+            color: #ff6f00;
+            font-size: 2.8rem;
+            text-shadow: 3px 3px 0px #ffeaa7, 5px 5px 0px rgba(0,0,0,0.05);
+            margin-top: 10px;
             margin-bottom: 35px;
-            background-color: #f0faff; /* Nền xanh mây dịu mát */
-            padding: 20px;
-            border-radius: 16px;
-            border: 3px dashed #3498db;
+            letter-spacing: 1px;
         }
 
+        /* --- CÁC STICKER TRANG TRÍ HOẠT HÌNH ĐÁNG YÊU --- */
+        .sticker {
+            position: absolute;
+            font-size: 2.5rem;
+            user-select: none;
+            z-index: 1;
+        }
+        /* Ông mặt trời lắc lư */
+        .sun { top: 20px; right: 40px; animation: rotateSun 6s linear infinite; }
+        /* Cầu vồng rực rỡ */
+        .rainbow { top: 15px; left: 40px; animation: floatCloud 4s ease-in-out infinite; }
+        /* Ngôi sao lấp lánh */
+        .star1 { bottom: 30px; left: 20px; font-size: 1.8rem; animation: blink 1.5s infinite; }
+        .star2 { bottom: 150px; right: 20px; font-size: 1.8rem; animation: blink 2s infinite 0.5s; }
+
+        /* Hiệu ứng chuyển động cho sticker */
+        @keyframes rotateSun { 0% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(15deg) scale(1.1); } 100% { transform: rotate(0deg) scale(1); } }
+        @keyframes floatCloud { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @keyframes blink { 0%, 100% { opacity: 0.3; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.2); } }
+
+        /* Từng cụm phân biệt âm */
+        .section {
+            margin-bottom: 40px;
+            background-color: #f0faff; /* Nền xanh mây dịu mát */
+            padding: 25px 20px;
+            border-radius: 24px;
+            border: 3px dashed #3498db;
+            position: relative;
+            box-shadow: inset 0 0 15px rgba(52, 152, 219, 0.1);
+        }
+
+        /* Đám mây tiêu đề nhỏ */
         .section-title {
-            color: #2c3e50;
+            color: #ffffff;
             font-size: 1.6rem;
-            margin-top: 0;
-            margin-bottom: 20px;
+            margin-top: -45px;
+            margin-bottom: 25px;
             text-align: center;
-            background: #cbdadb;
+            background: linear-gradient(135deg, #3498db, #2980b9);
             display: inline-block;
-            padding: 6px 20px;
-            border-radius: 20px;
-            box-shadow: 0 4px 0 #95a5a6;
+            padding: 10px 30px;
+            border-radius: 50px;
+            box-shadow: 0 6px 0 #1b4f72, 0 8px 15px rgba(0,0,0,0.1);
+            font-weight: bold;
         }
 
         .example-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
+            margin-top: 15px;
         }
 
+        /* Khung chứa cặp từ so sánh */
         .card-pair {
             display: flex;
             justify-content: space-around;
+            align-items: center;
             background: white;
-            border: 2px solid #e0e0e0;
-            padding: 20px 10px;
-            border-radius: 16px;
-            box-shadow: 0 6px 0 #e0e0e0;
+            border: 3px solid #e0e0e0;
+            padding: 25px 15px;
+            border-radius: 20px;
+            box-shadow: 0 8px 0 #e0e0e0;
+            position: relative;
         }
 
         .single-card {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 45%;
+            width: 44%;
         }
 
-        /* Khung chứa hình ảnh minh họa hoạt hình */
-        .illustration {
-            width: 110px;
-            height: 110px;
-            object-fit: cover;
-            border-radius: 12px;
-            border: 3px solid #f1c40f;
-            background-color: #fff;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        /* Khung chứa hình vẽ hoạt hình */
+        .illustration-box {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            border: 3.5px solid #f1c40f;
+            background-color: #fff9e6;
+            margin-bottom: 15px;
+            box-shadow: 0 6px 0 #f1c40f, 0 6px 10px rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
         }
 
-        /* Thiết kế nút bấm chữ SIÊU TO, nổi bật */
+        /* Nút bấm chữ SIÊU TO - Hiệu ứng thạch dẻo (Jelly) */
         .word {
             cursor: pointer;
-            font-size: 2.2rem; /* Kích thước chữ rất lớn, dễ nhìn */
+            font-size: 2.3rem;
             font-weight: bold;
-            padding: 10px 25px;
-            border-radius: 50px; /* Nút bo tròn hình quả trứng */
-            background: linear-gradient(135deg, #fff3b0 0%, #caefff 100%);
-            color: #2c3e50;
-            transition: all 0.1s ease;
+            padding: 12px 0;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #ffeb3b, #ff9800);
+            color: #ffffff;
+            text-shadow: 2px 2px 0px #d35400;
             user-select: none;
-            border: 3px solid #3498db;
-            box-shadow: 0 5px 0 #2980b9; /* Hiệu ứng 3D như đồ chơi */
+            border: 3px solid #e67e22;
+            box-shadow: 0 6px 0 #d35400, 0 8px 10px rgba(0,0,0,0.15);
             text-align: center;
-            width: 80%;
+            width: 100%;
+            transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* Hiệu ứng khi rê chuột vào nút */
+        /* Khi bé rê chuột vào nút */
         .word:hover {
-            transform: translateY(-2px);
-            background: linear-gradient(135deg, #ffcc00 0%, #ff6f00 100%);
-            color: white;
-            border-color: #ffcc00;
-            box-shadow: 0 7px 0 #d35400;
+            transform: translateY(-4px) scale(1.03);
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            border-color: #2e7d32;
+            text-shadow: 2px 2px 0px #1b5e20;
+            box-shadow: 0 10px 0 #1b5e20, 0 12px 15px rgba(0,0,0,0.15);
         }
 
-        /* Hiệu ứng khi nhấn nút */
+        /* Khi bé click bấm nút (Nút lún xuống nghe âm thanh) */
         .word:active {
-            transform: translateY(5px);
-            box-shadow: none;
+            transform: translateY(6px) scale(0.97);
+            box-shadow: 0 0px 0 #1b5e20, 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .meaning {
-            font-size: 1.1rem;
-            color: #555;
-            font-style: italic;
-            margin-top: 8px;
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-top: 10px;
             font-weight: bold;
             text-align: center;
+            background: #f8f9fa;
+            padding: 3px 12px;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
         }
 
+        /* Chữ "với" ở giữa */
         .vs-text {
-            display: flex;
-            align-items: center;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: bold;
             color: #e74c3c;
+            text-shadow: 1px 1px 0px #ffadbc;
+            animation: floatCloud 3s ease-in-out infinite;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>🎈 BÉ LUYỆN PHÁT ÂM CHUẨN VUI NHỘN 🎈</h1>
+    <!-- Các sticker sticker dễ thương bay nhảy xung quanh -->
+    <div class="sticker sun">☀️</div>
+    <div class="sticker rainbow">🌈</div>
+    <div class="sticker star1">⭐</div>
+    <div class="sticker star2">✨</div>
+
+    <h1>🎈 Bé luyện phát âm 🎈</h1>
 
     <!-- NHÓM 1: CH vs TR -->
     <div class="section">
-        <center><h2 class="section-title">1. Bé phân biệt "ch" và "tr"</h2></center>
+        <center><h2 class="section-title">☁️ Phân biệt "ch" và "tr" ☁️</h2></center>
         <div class="example-grid">
             <div class="card-pair">
                 <!-- Từ CHA -->
                 <div class="single-card">
-                    <img class="illustration" src="https://img.icons8.com/illustrations/officel/160/family.png" alt="cha mẹ">
+                    <div class="illustration-box">
+                        <!-- Hình vẽ Vector Gia đình (Cha mẹ nắm tay con) -->
+                        <svg viewBox="0 0 100 100" width="90" height="90">
+                            <circle cx="35" cy="35" r="12" fill="#ffb74d"/>
+                            <path d="M20 55 C20 48, 50 48, 50 55 L45 85 L25 85 Z" fill="#29b6f6"/>
+                            <circle cx="65" cy="40" r="10" fill="#ffb74d"/>
+                            <path d="M52 57 C52 52, 78 52, 78 57 L73 85 L57 85 Z" fill="#ec407a"/>
+                            <circle cx="50" cy="65" r="7" fill="#ffb74d"/>
+                            <path d="M40 75 C40 72, 60 72, 60 75 L56 92 L44 92 Z" fill="#ab47bc"/>
+                        </svg>
+                    </div>
                     <span class="word" onclick="playAudio('cha.aac')">cha 🔊</span>
                     <span class="meaning">cha mẹ</span>
                 </div>
@@ -160,7 +221,17 @@
 
                 <!-- Từ TRA -->
                 <div class="single-card">
-                    <img class="illustration" src="https://img.icons8.com/illustrations/officel/160/seed.png" alt="tra hạt">
+                    <div class="illustration-box">
+                        <!-- Hình vẽ Vector Tra hạt mầm lớn lên -->
+                        <svg viewBox="0 0 100 100" width="90" height="90">
+                            <path d="M10 85 Q50 75 90 85 L90 95 L10 95 Z" fill="#8d6e63"/>
+                            <path d="M50 80 Q50 40 30 30 Q50 45 50 80" fill="#4caf50"/>
+                            <path d="M50 75 Q50 35 70 25 Q50 40 50 75" fill="#4caf50"/>
+                            <path d="M30 30 Q15 20 20 10 Q35 15 30 30" fill="#81c784"/>
+                            <path d="M70 25 Q85 15 80 5 Q65 10 70 25" fill="#81c784"/>
+                            <circle cx="50" cy="88" r="4" fill="#ffca28"/>
+                        </svg>
+                    </div>
                     <span class="word" onclick="playAudio('tra.aac')">tra 🔊</span>
                     <span class="meaning">tra hạt</span>
                 </div>
@@ -170,12 +241,23 @@
 
     <!-- NHÓM 2: D vs GI -->
     <div class="section">
-        <center><h2 class="section-title">2. Bé phân biệt "d" và "gi"</h2></center>
+        <center><h2 class="section-title">☁️ Phân biệt "d" và "gi" ☁️</h2></center>
         <div class="example-grid">
             <div class="card-pair">
                 <!-- Từ DA -->
                 <div class="single-card">
-                    <img class="illustration" src="https://img.icons8.com/illustrations/officel/160/face-id.png" alt="làn da">
+                    <div class="illustration-box">
+                        <!-- Hình vẽ Vector Gương mặt em bé có làn da hồng hào -->
+                        <svg viewBox="0 0 100 100" width="90" height="90">
+                            <circle cx="50" cy="50" r="35" fill="#ffdbb5"/>
+                            <circle cx="38" cy="45" r="4" fill="#2c3e50"/>
+                            <circle cx="62" cy="45" r="4" fill="#2c3e50"/>
+                            <path d="M 40 65 Q 50 75 60 65" stroke="#e74c3c" stroke-width="4" fill="none" stroke-linecap="round"/>
+                            <circle cx="28" cy="60" r="5" fill="#ffb3b3" opacity="0.6"/>
+                            <circle cx="72" cy="60" r="5" fill="#ffb3b3" opacity="0.6"/>
+                            <path d="M15 40 Q50 15 85 40 Q50 30 15 40" fill="#6d4c41"/>
+                        </svg>
+                    </div>
                     <span class="word" onclick="playAudio('da.aac')">da 🔊</span>
                     <span class="meaning">làn da</span>
                 </div>
@@ -184,7 +266,16 @@
 
                 <!-- Từ GIA -->
                 <div class="single-card">
-                    <img class="illustration" src="https://img.icons8.com/illustrations/officel/160/home.png" alt="gia đình">
+                    <div class="illustration-box">
+                        <!-- Hình vẽ Vector Ngôi nhà ấm cúng (Gia đình) -->
+                        <svg viewBox="0 0 100 100" width="90" height="90">
+                            <polygon points="50,15 15,50 85,50" fill="#e74c3c"/>
+                            <rect x="25" y="50" width="50" height="40" fill="#f1c40f"/>
+                            <rect x="42" y="65" width="16" height="25" fill="#795548"/>
+                            <rect x="32" y="56" width="12" height="12" fill="#e0f7fa"/>
+                            <rect x="56" y="56" width="12" height="12" fill="#e0f7fa"/>
+                        </svg>
+                    </div>
                     <span class="word" onclick="playAudio('gia.aac')">gia 🔊</span>
                     <span class="meaning">gia đình</span>
                 </div>
@@ -194,12 +285,20 @@
 
     <!-- NHÓM 3: L vs N -->
     <div class="section">
-        <center><h2 class="section-title">3. Bé phân biệt "l" và "n"</h2></center>
+        <center><h2 class="section-title">☁️ Phân biệt "l" và "n" ☁️</h2></center>
         <div class="example-grid">
             <div class="card-pair">
                 <!-- Từ LA -->
                 <div class="single-card">
-                    <img class="illustration" src="https://img.icons8.com/illustrations/officel/160/megaphone.png" alt="hét la">
+                    <div class="illustration-box">
+                        <!-- Hình vẽ Vector Chiếc loa phát thanh (Hét la) -->
+                        <svg viewBox="0 0 100 100" width="90" height="90">
+                            <path d="M20 40 L40 40 L65 20 L65 80 L40 60 L20 60 Z" fill="#78909c"/>
+                            <rect x="12" y="43" width="8" height="14" rx="3" fill="#37474f"/>
+                            <path d="M73 40 Q80 50 73 60" stroke="#ff9800" stroke-width="4" fill="none" stroke-linecap="round"/>
+                            <path d="M80 30 Q92 50 80 70" stroke="#ff5722" stroke-width="4" fill="none" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                     <span class="word" onclick="playAudio('la.aac')">la 🔊</span>
                     <span class="meaning">hét la</span>
                 </div>
@@ -208,7 +307,21 @@
 
                 <!-- Từ NA -->
                 <div class="single-card">
-                    <img class="illustration" src="https://img.icons8.com/illustrations/officel/160/strawberry.png" alt="quả na">
+                    <div class="illustration-box">
+                        <!-- Hình vẽ Vector Quả mãng cầu/Quả dưa nhiều mắt hạt tròn dễ thương -->
+                        <svg viewBox="0 0 100 100" width="90" height="90">
+                            <circle cx="50" cy="55" r="32" fill="#81c784"/>
+                            <circle cx="40" cy="40" r="8" fill="#4caf50"/>
+                            <circle cx="60" cy="40" r="8" fill="#4caf50"/>
+                            <circle cx="35" cy="55" r="8" fill="#4caf50"/>
+                            <circle cx="50" cy="55" r="8" fill="#4caf50"/>
+                            <circle cx="65" cy="55" r="8" fill="#4caf50"/>
+                            <circle cx="42" cy="70" r="8" fill="#4caf50"/>
+                            <circle cx="58" cy="70" r="8" fill="#4caf50"/>
+                            <path d="M50 25 Q55 10 50 5" stroke="#795548" stroke-width="4" fill="none"/>
+                            <path d="M50 15 Q65 12 60 22" fill="#2e7d32"/>
+                        </svg>
+                    </div>
                     <span class="word" onclick="playAudio('na.aac')">na 🔊</span>
                     <span class="meaning">quả na</span>
                 </div>
