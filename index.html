@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bé luyện phát âm</title>
+    <!-- Tải các font chữ hoạt hình siêu dễ thương từ Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@600;900&display=swap" rel="stylesheet">
     
     <style>
+        /* Thiết kế tổng thể rực rỡ, đầy màu sắc hoạt hình kích thích thị giác bé Lớp 1 */
         body {
             font-family: 'Quicksand', sans-serif;
             background: linear-gradient(135deg, #ffeb3b 0%, #ff80ab 100%);
@@ -20,7 +22,7 @@
             overflow-x: hidden;
         }
 
-        /* Khung bảng học tập ma thuật */
+        /* Khung tranh học tập thần kỳ */
         .magic-box {
             max-width: 900px;
             width: 100%;
@@ -35,7 +37,7 @@
             text-align: center;
         }
 
-        /* Tiêu đề chính uốn lượn đáng yêu */
+        /* Tiêu đề chữ bong bóng lắc lư vui nhộn */
         .main-title {
             font-family: 'Fredoka One', cursive;
             color: #ff3d00;
@@ -46,11 +48,7 @@
             animation: bounceTitle 2s ease-in-out infinite alternate;
         }
 
-        @keyframes bounceTitle {
-            0% { transform: translateY(0) rotate(-2deg); }
-            100% { transform: translateY(-10px) rotate(2deg); }
-        }
-
+        /* --- STICKER TRANG TRÍ HOẠT HÌNH LỚP 1 --- */
         .sticker {
             position: absolute;
             user-select: none;
@@ -63,6 +61,10 @@
         .rainbow-decor { top: -60px; left: -40px; font-size: 5rem; animation: sway 4s ease-in-out infinite alternate; }
         .lollipop { bottom: -30px; right: -30px; font-size: 4.5rem; animation: sway 3s ease-in-out infinite alternate; }
 
+        @keyframes bounceTitle {
+            0% { transform: translateY(0) rotate(-2deg); }
+            100% { transform: translateY(-10px) rotate(2deg); }
+        }
         @keyframes spinSun { 100% { transform: rotate(360deg); } }
         @keyframes floatUp {
             0%, 100% { transform: translateY(0) rotate(-5deg); }
@@ -73,6 +75,7 @@
             100% { transform: rotate(10deg); }
         }
 
+        /* Các bảng phân biệt âm */
         .sound-section {
             background: #e0f7fa;
             border-radius: 30px;
@@ -83,7 +86,7 @@
             position: relative;
         }
 
-        /* Đám mây chứa tên cặp âm */
+        /* Đám mây tiêu đề */
         .cloud-title {
             background: linear-gradient(135deg, #00e5ff, #00b0ff);
             color: white;
@@ -105,6 +108,7 @@
             gap: 20px;
         }
 
+        /* Cặp thẻ bài học cho bé */
         .card-box {
             background: white;
             border: 4px solid #ffbc00;
@@ -124,7 +128,7 @@
             transform: scale(1.02);
         }
 
-        /* Khung tranh hoạt hình minh họa */
+        /* Khung tranh minh họa đáng yêu */
         .avatar-frame {
             width: 140px;
             height: 140px;
@@ -138,17 +142,17 @@
             margin-bottom: 20px;
         }
 
-        /* Chữ cái đích to rõ ràng cho học sinh lớp 1 */
+        /* Chữ đích siêu siêu lớn cho bé lớp 1 dễ đọc */
         .big-letter {
             font-family: 'Fredoka One', cursive;
-            font-size: 4.5rem; /* Tăng cỡ chữ cực lớn */
+            font-size: 4.5rem; /* Chữ siêu to */
             color: #2e7d32;
             margin: 5px 0 15px 0;
             letter-spacing: 2px;
             text-shadow: 2px 2px 0px #c8e6c9;
         }
 
-        /* Nút "Cô Đọc" đồ chơi */
+        /* Nút bấm Đồ Chơi phát âm thanh giọng cô giáo */
         .btn-toy {
             background: linear-gradient(135deg, #ff9800, #ff5722);
             color: white;
@@ -174,7 +178,7 @@
             box-shadow: 0 1px 0 #e64a19;
         }
 
-        /* Nút Micro "Bé Nói" */
+        /* Nút micro thông minh "Bé Nói" */
         .btn-mic {
             background: linear-gradient(135deg, #9c27b0, #e91e63);
             color: white;
@@ -199,7 +203,7 @@
             box-shadow: 0 1px 0 #ad1457;
         }
 
-        /* Trạng thái sóng micro nhấp nháy khi đang ghi âm */
+        /* Hiệu ứng sóng nhạc nhấp nháy khi micro đang nghe */
         .listening {
             animation: pulseMic 1s infinite alternate;
             background: linear-gradient(135deg, #4caf50, #00e676) !important;
@@ -211,7 +215,7 @@
             100% { transform: scale(1.08); }
         }
 
-        /* Chữ nối "với" dễ thương ở giữa */
+        /* Chữ "với" tinh nghịch ở giữa hai ô */
         .vs-text {
             font-family: 'Fredoka One', cursive;
             font-size: 2.2rem;
@@ -226,13 +230,13 @@
             100% { transform: rotate(5deg); }
         }
 
-        /* Hộp thoại bóng bóng báo trạng thái khi micro hoạt động */
+        /* --- HỘP THOẠI TRẠNG THÁI AI NGHE --- */
         .status-bubble {
             background: #fff;
             border: 4px solid #ab47bc;
             border-radius: 20px;
-            padding: 10px 20px;
-            font-size: 1.3rem;
+            padding: 15px 25px;
+            font-size: 1.4rem;
             font-weight: bold;
             color: #ab47bc;
             display: none;
@@ -243,6 +247,8 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
             z-index: 100;
             animation: popUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+            max-width: 90%;
         }
 
         @keyframes popUp {
@@ -250,7 +256,7 @@
             100% { transform: translateX(-50%) translateY(0) scale(1); opacity: 1; }
         }
 
-        /* Pháo bông ăn mừng khi bé trả lời đúng */
+        /* --- PHÁO HOA ĂN MỪNG CHIẾN THẮNG --- */
         #confetti-canvas {
             position: fixed;
             top: 0;
@@ -266,7 +272,7 @@
 
 <canvas id="confetti-canvas"></canvas>
 
-<!-- Các Sticker trang trí -->
+<!-- Bong bóng trang trí xung quanh -->
 <div class="sticker sun">☀️</div>
 <div class="sticker rainbow-decor">🌈</div>
 <div class="sticker balloon1">🎈</div>
@@ -276,12 +282,14 @@
 <div class="magic-box">
     <h1 class="main-title">✨ Bé Luyện Phát Âm ✨</h1>
 
+    <!-- NHÓM 1: CH vs TR -->
     <div class="sound-section">
         <span class="cloud-title">☁️ Cặp âm: ch - tr ☁️</span>
         <div class="cards-container">
             <!-- Thẻ chữ CHA -->
             <div class="card-box">
                 <div class="avatar-frame">
+                    <!-- Hình vẽ cha vui vẻ ôm con -->
                     <svg viewBox="0 0 100 100" width="100" height="100">
                         <circle cx="50" cy="30" r="16" fill="#ffb74d"/>
                         <circle cx="50" cy="28" r="12" fill="#ffe082"/>
@@ -303,6 +311,7 @@
             <!-- Thẻ chữ TRA -->
             <div class="card-box">
                 <div class="avatar-frame">
+                    <!-- Hình vẽ mầm cây xanh tra hạt -->
                     <svg viewBox="0 0 100 100" width="100" height="100">
                         <path d="M 10 90 L 90 90" stroke="#8d6e63" stroke-width="8" stroke-linecap="round"/>
                         <path d="M 50 90 Q 50 40 35 30 Q 50 45 50 90" fill="#4caf50"/>
@@ -317,12 +326,14 @@
         </div>
     </div>
 
+    <!-- NHÓM 2: D vs GI -->
     <div class="sound-section" style="border-color: #ff4081; background: #fff0f5;">
         <span class="cloud-title" style="background: linear-gradient(135deg, #ff4081, #f50057);">☁️ Cặp âm: d - gi ☁️</span>
         <div class="cards-container">
             <!-- Thẻ chữ DA -->
             <div class="card-box" style="border-color: #ff4081;">
                 <div class="avatar-frame" style="border-color: #ff4081;">
+                    <!-- Hình em bé da dẻ hồng hào cười -->
                     <svg viewBox="0 0 100 100" width="100" height="100">
                         <circle cx="50" cy="50" r="35" fill="#ffdbb5"/>
                         <circle cx="38" cy="45" r="4" fill="#000"/>
@@ -342,6 +353,7 @@
             <!-- Thẻ chữ GIA -->
             <div class="card-box" style="border-color: #ff4081;">
                 <div class="avatar-frame" style="border-color: #ff4081;">
+                    <!-- Hình ngôi nhà gia đình ấm áp -->
                     <svg viewBox="0 0 100 100" width="100" height="100">
                         <polygon points="50,15 15,50 85,50" fill="#ff5252"/>
                         <rect x="25" y="50" width="50" height="40" fill="#ffe082"/>
@@ -356,12 +368,14 @@
         </div>
     </div>
 
+    <!-- NHÓM 3: L vs N -->
     <div class="sound-section" style="border-color: #4caf50; background: #e8f5e9;">
         <span class="cloud-title" style="background: linear-gradient(135deg, #4caf50, #2e7d32);">☁️ Cặp âm: l - n ☁️</span>
         <div class="cards-container">
             <!-- Thẻ chữ LA -->
             <div class="card-box" style="border-color: #4caf50;">
                 <div class="avatar-frame" style="border-color: #4caf50;">
+                    <!-- Hình chiếc loa phát tiếng hét la -->
                     <svg viewBox="0 0 100 100" width="100" height="100">
                         <path d="M20 40 L40 40 L65 20 L65 80 L40 60 L20 60 Z" fill="#90a4ae"/>
                         <path d="M72 40 Q78 50 72 60" stroke="#ff9800" stroke-width="4" fill="none" stroke-linecap="round"/>
@@ -378,6 +392,7 @@
             <!-- Thẻ chữ NA -->
             <div class="card-box" style="border-color: #4caf50;">
                 <div class="avatar-frame" style="border-color: #4caf50;">
+                    <!-- Hình quả na mọng nước nhiều mắt hạt -->
                     <svg viewBox="0 0 100 100" width="100" height="100">
                         <circle cx="50" cy="55" r="30" fill="#a5d6a7"/>
                         <circle cx="42" cy="42" r="8" fill="#81c784"/>
@@ -396,6 +411,7 @@
     </div>
 </div>
 
+<!-- Hộp thoại bóng khí thông báo khi micro đang lắng nghe bé nói -->
 <div class="status-bubble" id="status-box">👂 Bé đọc to từ trên bảng nhé...</div>
 
 <script>
@@ -408,7 +424,7 @@
         recognition.interimResults = false;
         recognition.maxAlternatives = 1;
     } else {
-        alert("Thiết bị này chưa hỗ trợ nhận dạng giọng nói. Bạn hãy mở bằng Google Chrome để trải nghiệm tốt nhất nhé!");
+        alert("Thiết bị này chưa hỗ trợ nhận diện giọng nói. Bạn hãy mở bằng trình duyệt Google Chrome để trải nghiệm tốt nhất nhé!");
     }
 
     // Hàm phát giọng đọc chuẩn của giáo viên
@@ -419,17 +435,17 @@
         });
     }
 
-    // Hàm phát âm thanh hệ thống (Đúng/Sai) qua trí tuệ nhân tạo text-to-speech của máy
+    // Hàm phát âm thanh hệ thống (Đúng/Sai) qua AI Google Speech
     function systemSpeak(text, callback) {
         if (!synth) {
             if (callback) callback();
             return;
         }
-        synth.cancel(); // Dừng phát tất cả âm thanh hệ thống cũ
+        synth.cancel(); // Tắt giọng cũ trước
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = 'vi-VN';
         utterance.rate = 1.0;
-        utterance.pitch = 1.2; // Tăng cao độ nhẹ cho giọng nói trẻ trung, dễ thương
+        utterance.pitch = 1.2; // Giọng đáng yêu hơn
         
         utterance.onend = function() {
             if (callback) callback();
@@ -437,6 +453,7 @@
         synth.speak(utterance);
     }
 
+    // --- HÀM NHẬN DIỆN VÀ PHÂN BIỆT GIỌNG NÓI ---
     function startListening(targetWord, spellingAudioFile, buttonElement) {
         if (isListening || !recognition) return;
 
@@ -444,50 +461,95 @@
         buttonElement.classList.add('listening');
         const statusBox = document.getElementById('status-box');
         statusBox.style.display = 'block';
-        statusBox.innerText = "👂 Bé đọc to chữ '" + targetWord + "' lên nào...";
+        statusBox.innerText = "👂 Bé đang đánh vần chữ '" + targetWord + "'...";
 
         recognition.start();
 
         recognition.onresult = function(event) {
             const transcript = event.results[0][0].transcript.toLowerCase().trim();
-            statusBox.innerText = "Bé đã nói: \"" + transcript + "\"";
             
-            // Loại bỏ các ký tự dấu chấm câu
-            const cleanTranscript = transcript.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+            // Xóa dấu câu, ký tự thừa và dấu gạch nối để chuyển đổi thành văn bản mượt mà
+            const cleanTranscript = transcript.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, " ").replace(/\s+/g, " ").trim();
+            statusBox.innerText = "Bé đã đánh vần: \"" + cleanTranscript + "\"";
 
             let isCorrect = false;
 
-            if (targetWord === 'cha' && cleanTranscript === 'cha') {
-                isCorrect = true;
-            } else if (targetWord === 'tra' && cleanTranscript === 'tra') {
-                isCorrect = true;
-            } else if (targetWord === 'da' && (cleanTranscript === 'da' || cleanTranscript === 'da dẻ')) {
-                isCorrect = true;
-            } else if (targetWord === 'gia' && (cleanTranscript === 'gia' || cleanTranscript === 'gia đình')) {
-                isCorrect = true;
-            } else if (targetWord === 'la' && (cleanTranscript === 'la' || cleanTranscript === 'la hét')) {
-                isCorrect = true;
-            } else if (targetWord === 'na' && (cleanTranscript === 'na' || cleanTranscript === 'quả na')) {
-                isCorrect = true;
+            // BỘ LỌC ĐỐI SÁNH NHẬN DIỆN QUÁ TRÌNH ĐÁNH VẦN CỦA BÉ
+            if (targetWord === 'cha') {
+                // Nhận diện đánh vần: "chờ a cha" hoặc "cờ hờ a cha" hoặc "cha"
+                // Không được lẫn lộn chứa âm đầu "tr" của chữ "tra"
+                if (!cleanTranscript.includes('tr')) {
+                    const matchesSpelling = (cleanTranscript.includes('chờ') && cleanTranscript.includes('a')) || 
+                                            (cleanTranscript.includes('ch') && cleanTranscript.includes('a')) ||
+                                            cleanTranscript.includes('cờ hờ') || 
+                                            cleanTranscript.includes('cha');
+                    if (matchesSpelling) isCorrect = true;
+                }
+            } else if (targetWord === 'tra') {
+                // Nhận diện đánh vần: "trờ a tra" hoặc "tờ rờ a tra" hoặc "tra"
+                // Không được lẫn lộn chứa âm "ch" của "cha" (chờ, cờ hờ)
+                if (!cleanTranscript.includes('chờ') && !cleanTranscript.includes('cờ hờ')) {
+                    const matchesSpelling = (cleanTranscript.includes('trờ') && cleanTranscript.includes('a')) || 
+                                            (cleanTranscript.includes('tr') && cleanTranscript.includes('a')) ||
+                                            (cleanTranscript.includes('tờ rờ') && cleanTranscript.includes('a')) ||
+                                            cleanTranscript.includes('trời') ||
+                                            cleanTranscript.includes('tra');
+                    if (matchesSpelling) isCorrect = true;
+                }
+            } else if (targetWord === 'da') {
+                // Nhận diện đánh vần: "dờ a da" hoặc "da"
+                // Không được lẫn lộn âm "gi", "di" của "gia"
+                if (!cleanTranscript.includes('gi') && !cleanTranscript.includes('di')) {
+                    const matchesSpelling = (cleanTranscript.includes('dờ') && cleanTranscript.includes('a')) || 
+                                            (cleanTranscript.includes('d') && cleanTranscript.includes('a')) ||
+                                            cleanTranscript.includes('da');
+                    if (matchesSpelling) isCorrect = true;
+                }
+            } else if (targetWord === 'gia') {
+                // Nhận diện đánh vần: "di a gia" hoặc "gi a gia" hoặc "gia"
+                // Không được nhầm lẫn sang "dờ" thuần túy
+                const matchesSpelling = (cleanTranscript.includes('di') && cleanTranscript.includes('a')) || 
+                                        (cleanTranscript.includes('gi') && cleanTranscript.includes('a')) ||
+                                        (cleanTranscript.includes('giờ') && cleanTranscript.includes('a')) ||
+                                        cleanTranscript.includes('gia');
+                if (matchesSpelling) isCorrect = true;
+            } else if (targetWord === 'la') {
+                // Nhận diện đánh vần: "lờ a la" hoặc "la"
+                // Không nhầm sang "nờ", "na"
+                if (!cleanTranscript.includes('nờ') && !cleanTranscript.includes('na')) {
+                    const matchesSpelling = (cleanTranscript.includes('lờ') && cleanTranscript.includes('a')) || 
+                                            (cleanTranscript.includes('l') && cleanTranscript.includes('a')) ||
+                                            cleanTranscript.includes('la');
+                    if (matchesSpelling) isCorrect = true;
+                }
+            } else if (targetWord === 'na') {
+                // Nhận diện đánh vần: "nờ a na" hoặc "na"
+                // Không nhầm sang "lờ", "la"
+                if (!cleanTranscript.includes('lờ') && !cleanTranscript.includes('la')) {
+                    const matchesSpelling = (cleanTranscript.includes('nờ') && cleanTranscript.includes('a')) || 
+                                            (cleanTranscript.includes('n') && cleanTranscript.includes('a')) ||
+                                            cleanTranscript.includes('na');
+                    if (matchesSpelling) isCorrect = true;
+                }
             }
 
             if (isCorrect) {
-                // Bé nói đúng -> AI hệ thống khen ngợi và tung hoa giấy lung linh
+                // Bé đọc đúng -> Chúc mừng, bắn pháo bông rực rỡ
                 systemSpeak("Tuyệt vời! Bé nói đúng rồi!", () => {
                     startConfetti();
                     setTimeout(stopConfetti, 3000);
                 });
             } else {
-                // Bé nói chưa đúng -> Hệ thống thông báo lỗi rồi tự động kích hoạt phát âm thanh cô giáo đọc mẫu
+                // Bé đọc sai -> AI phát cảnh báo "Chưa đúng rồi", sau đó kích hoạt lại giọng đọc chuẩn cô giáo đánh vần
                 systemSpeak("Chưa đúng rồi!", () => {
-                    // Sau khi dứt lời nhắc nhở hệ thống, phát lại file gốc của cô giáo
+                    // Ngay sau khi tiếng AI tắt, phát file ghi âm chuẩn của cô giáo để bé bắt chước
                     playAudio(spellingAudioFile);
                 });
             }
         };
 
         recognition.onerror = function() {
-            statusBox.innerText = "Chưa nghe rõ, bé bấm nút nói lại nhé!";
+            statusBox.innerText = "Chưa nghe rõ, bé thử bấm nút nói lại nhé!";
             systemSpeak("Chưa đúng rồi!", () => {
                 playAudio(spellingAudioFile);
             });
@@ -498,10 +560,11 @@
             buttonElement.classList.remove('listening');
             setTimeout(() => {
                 statusBox.style.display = 'none';
-            }, 3000);
+            }, 4000); // Tăng thời gian hiển thị hộp thoại để cô/phụ huynh và bé nhìn rõ chữ đã đánh vần
         };
     }
 
+    // --- HIỆU ỨNG PHÁO HOA ĂN MỪNG ---
     const canvas = document.getElementById('confetti-canvas');
     const ctx = canvas.getContext('2d');
     let confettiActive = false;
