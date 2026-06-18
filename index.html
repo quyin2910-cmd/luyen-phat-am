@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bé luyện phát âm</title>
-    <!-- Sử dụng thư viện Tailwind CSS cho giao diện hiện đại và Fredoka Font hoạt hình siêu đáng yêu -->
+    <title>Bé luyện phát âm AI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Thư viện tạo hiệu ứng pháo hoa rực rỡ khi bé nói đúng -->
+    <!-- Thư viện tạo hiệu ứng pháo hoa khi bé đọc đúng -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <script>
@@ -28,7 +27,6 @@
             background: radial-gradient(circle, #fffae6 60%, #ffeaa7 100%);
             min-height: 100vh;
         }
-        /* Hiệu ứng nhấp nháy cho ngôi sao và lắc lư cho mặt trời */
         @keyframes rotateSun {
             0% { transform: rotate(0deg) scale(1); }
             50% { transform: rotate(15deg) scale(1.1); }
@@ -42,25 +40,25 @@
         .float-animation { animation: floatEffect 4s ease-in-out infinite; }
     </style>
 </head>
-<body class="p-4 md:p-8 flex items-center justify-center relative overflow-x-hidden">
+<body class="p-4 md:p-8 flex flex-col items-center justify-center relative overflow-x-hidden">
 
-    <!-- Các sticker trang trí hoạt hình chuyển động sinh động -->
     <div class="absolute top-5 right-8 text-5xl sun-animation select-none z-0">☀️</div>
     <div class="absolute top-8 left-8 text-5xl float-animation select-none z-0">🌈</div>
     <div class="absolute bottom-10 left-6 text-4xl opacity-75 animate-bounce select-none z-0">⭐</div>
     <div class="absolute bottom-24 right-6 text-4xl opacity-75 animate-bounce select-none z-0">✨</div>
 
+    <!-- Khung chính ứng dụng -->
     <div class="max-w-4xl w-full bg-white rounded-[35px] border-[6px] border-[#ffcc00] p-6 md:p-10 shadow-[0_15px_0_#ffb900,0_25px_30px_rgba(0,0,0,0.1)] relative z-10">
         
-        <!-- Tiêu đề chính -->
         <div class="text-center mb-8">
             <h1 class="text-4xl md:text-5xl font-bold text-[#ff6f00] drop-shadow-[2px_2px_0px_#ffeaa7] inline-block">
-                🎈 Bé luyện phát âm 🎈
+                🎈 Bé luyện phát âm AI 🎈
             </h1>
-            <p class="text-gray-600 mt-3 text-lg font-medium">Bé bấm loa để nghe Cô đọc, bấm Micro để tự phát âm thử nhé!</p>
+            <p class="text-gray-700 mt-3 text-lg font-semibold bg-[#fff9e6] py-2 px-4 rounded-full inline-block border-2 border-dashed border-[#ffb900]">
+                👉 Bé nhớ đọc <span class="text-[#e74c3c] font-bold underline">CẢ CỤM TỪ</span> dưới hình vẽ để máy chấm điểm thật chuẩn nhé!
+            </p>
         </div>
 
-        <!-- PHẦN 1: CH vs TR -->
         <div class="mb-10 bg-[#f0faff] p-6 rounded-[24px] border-4 border-dashed border-[#3498db] relative">
             <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#3498db] to-[#2980b9] text-white font-bold text-xl px-8 py-2 rounded-full shadow-[0_4px_0_#1b4f72]">
                 ☁️ Phân biệt "ch" và "tr" ☁️
@@ -70,7 +68,6 @@
                 <!-- Từ CHA -->
                 <div id="card-cha" class="bg-white rounded-2xl border-3 border-gray-200 p-5 shadow-[0_6px_0_#e0e0e0] flex flex-col items-center transition-all duration-300">
                     <div class="w-28 h-28 bg-[#fff9e6] border-4 border-[#f1c40f] rounded-2xl flex items-center justify-center mb-4 shadow-[0_4px_0_#f1c40f]">
-                        <!-- SVG Hình vẽ gia đình -->
                         <svg viewBox="0 0 100 100" class="w-20 h-20">
                             <circle cx="35" cy="35" r="12" fill="#ffb74d"/>
                             <path d="M20 55 C20 48, 50 48, 50 55 L45 85 L25 85 Z" fill="#29b6f6"/>
@@ -80,23 +77,24 @@
                             <path d="M40 75 C40 72, 60 72, 60 75 L56 92 L44 92 Z" fill="#ab47bc"/>
                         </svg>
                     </div>
-                    <div class="text-center font-bold text-gray-500 mb-3 text-lg">cha mẹ</div>
+                    <!-- Làm nổi bật cụm từ bắt buộc bé đọc -->
+                    <div class="text-center mb-3">
+                        <span class="text-3xl font-bold text-[#2c3e50] tracking-wide block">cha mẹ</span>
+                    </div>
                     <div class="flex gap-3 w-full">
                         <button onclick="playAudio('cha.aac')" class="flex-1 bg-gradient-to-r from-[#ffeb3b] to-[#ff9800] hover:from-[#ff9800] hover:to-[#e67e22] text-white font-bold text-lg py-3 px-2 rounded-xl border-b-4 border-[#d35400] active:border-b-0 active:translate-y-1 transition-all flex items-center justify-center gap-1">
                             Cô đọc 🔊
                         </button>
-                        <button onclick="startListening('cha', 'cha_danh_van.aac')" class="flex-1 bg-gradient-to-r from-[#3498db] to-[#1abc9c] hover:from-[#2980b9] hover:to-[#16a085] text-white font-bold text-lg py-3 px-2 rounded-xl border-b-4 border-[#1f3a52] active:border-b-0 active:translate-y-1 transition-all flex items-center justify-center gap-1">
+                        <button onclick="startListening('cha', 'cha_danh_van.aac', 'cha mẹ')" class="flex-1 bg-gradient-to-r from-[#3498db] to-[#1abc9c] hover:from-[#2980b9] hover:to-[#16a085] text-white font-bold text-lg py-3 px-2 rounded-xl border-b-4 border-[#1f3a52] active:border-b-0 active:translate-y-1 transition-all flex items-center justify-center gap-1">
                             Bé nói 🎙️
                         </button>
                     </div>
-                    <!-- Trạng thái chấm điểm -->
                     <div id="status-cha" class="mt-4 text-sm font-semibold text-gray-400">Chưa kiểm tra</div>
                 </div>
 
                 <!-- Từ TRA -->
                 <div id="card-tra" class="bg-white rounded-2xl border-3 border-gray-200 p-5 shadow-[0_6px_0_#e0e0e0] flex flex-col items-center transition-all duration-300">
                     <div class="w-28 h-28 bg-[#fff9e6] border-4 border-[#f1c40f] rounded-2xl flex items-center justify-center mb-4 shadow-[0_4px_0_#f1c40f]">
-                        <!-- SVG Tra hạt mầm lớn lên -->
                         <svg viewBox="0 0 100 100" class="w-20 h-20">
                             <path d="M10 85 Q50 75 90 85 L90 95 L10 95 Z" fill="#8d6e63"/>
                             <path d="M50 80 Q50 40 30 30 Q50 45 50 80" fill="#4caf50"/>
@@ -106,12 +104,14 @@
                             <circle cx="50" cy="88" r="4" fill="#ffca28"/>
                         </svg>
                     </div>
-                    <div class="text-center font-bold text-gray-500 mb-3 text-lg">tra hạt</div>
+                    <div class="text-center mb-3">
+                        <span class="text-3xl font-bold text-[#2c3e50] tracking-wide block">tra hạt</span>
+                    </div>
                     <div class="flex gap-3 w-full">
                         <button onclick="playAudio('tra.aac')" class="flex-1 bg-gradient-to-r from-[#ffeb3b] to-[#ff9800] hover:from-[#ff9800] hover:to-[#e67e22] text-white font-bold text-lg py-3 px-2 rounded-xl border-b-4 border-[#d35400] active:border-b-0 active:translate-y-1 transition-all flex items-center justify-center gap-1">
                             Cô đọc 🔊
                         </button>
-                        <button onclick="startListening('tra', 'tra_danh_van.aac')" class="flex-1 bg-gradient-to-r from-[#3498db] to-[#1abc9c] hover:from-[#2980b9] hover:to-[#16a085] text-white font-bold text-lg py-3 px-2 rounded-xl border-b-4 border-[#1f3a52] active:border-b-0 active:translate-y-1 transition-all flex items-center justify-center gap-1">
+                        <button onclick="startListening('tra', 'tra_danh_van.aac', 'tra hạt')" class="flex-1 bg-gradient-to-r from-[#3498db] to-[#1abc9c] hover:from-[#2980b9] hover:to-[#16a085] text-white font-bold text-lg py-3 px-2 rounded-xl border-b-4 border-[#1f3a52] active:border-b-0 active:translate-y-1 transition-all flex items-center justify-center gap-1">
                             Bé nói 🎙️
                         </button>
                     </div>
@@ -120,7 +120,6 @@
             </div>
         </div>
 
-        <!-- PHẦN 2: D vs GI -->
         <div class="mb-10 bg-[#f0faff] p-6 rounded-[24px] border-4 border-dashed border-[#3498db] relative">
             <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#3498db] to-[#2980b9] text-white font-bold text-xl px-8 py-2 rounded-full shadow-[0_4px_0_#1b4f72]">
                 ☁️ Phân biệt "d" và "gi" ☁️
@@ -130,7 +129,6 @@
                 <!-- Từ DA -->
                 <div id="card-da" class="bg-white rounded-2xl border-3 border-gray-200 p-5 shadow-[0_6px_0_#e0e0e0] flex flex-col items-center transition-all duration-300">
                     <div class="w-28 h-28 bg-[#fff9e6] border-4 border-[#f1c40f] rounded-2xl flex items-center justify-center mb-4 shadow-[0_4px_0_#f1c40f]">
-                        <!-- SVG Gương mặt bé da hồng hào -->
                         <svg viewBox="0 0 100 100" class="w-20 h-20">
                             <circle cx="50" cy="50" r="35" fill="#ffdbb5"/>
                             <circle cx="38" cy="45" r="4" fill="#2c3e50"/>
@@ -141,12 +139,14 @@
                             <path d="M15 40 Q50 15 85 40 Q50 30 15 40" fill="#6d4c41"/>
                         </svg>
                     </div>
-                    <div class="text-center font-bold text-gray-500 mb-3 text-lg">làn da</div>
+                    <div class="text-center mb-3">
+                        <span class="text-3xl font-bold text-[#2c3e50] tracking-wide block">làn da</span>
+                    </div>
                     <div class="flex gap-3 w-full">
                         <button onclick="playAudio('da.aac')" class="flex-1 bg-gradient-to-r from-[#ffeb3b] to-[#ff9800] hover:from-[#ff9800] hover:to-[#e67e22] text-white font-bold text-lg py-3 px-2 rounded-xl border-b-4 border-[#d35400] active:border-b-0 active:translate-y-1 transition-all flex items-center justify-center gap-1">
                             Cô đọc 🔊
                         </button>
-                        <button onclick="startListening('da', 'da_danh_van.aac')" class="flex-1 bg-gradient-to-r from-[#3498db] to-[#1abc9c] hover:from-[#2980b9] hover:to-[#16a085] text-white font-bold text-lg py-3 px-2 rounded-xl border-b-4 border-[#1f3a52] active:border-b-0 active:translate-y-1 transition-all flex items-center justify-center gap-1">
+                        <button onclick="startListening('da', 'da_danh_van.aac', 'làn da')" class="flex-1 bg-gradient-to-r from-[#3498db] to-[#1abc9c] hover:from-[#2980b9] hover:to-[#16a085] text-white font-bold text-lg py-3 px-2 rounded-xl border-b-4 border-[#1f3a52] active:border-b-0 active:translate-y-1 transition-all flex items-center justify-center gap-1">
                             Bé nói 🎙️
                         </button>
                     </div>
@@ -156,7 +156,6 @@
                 <!-- Từ GIA -->
                 <div id="card-gia" class="bg-white rounded-2xl border-3 border-gray-200 p-5 shadow-[0_6px_0_#e0e0e0] flex flex-col items-center transition-all duration-300">
                     <div class="w-28 h-28 bg-[#fff9e6] border-4 border-[#f1c40f] rounded-2xl flex items-center justify-center mb-4 shadow-[0_4px_0_#f1c40f]">
-                        <!-- SVG Ngôi nhà ấm cúng -->
                         <svg viewBox="0 0 100 100" class="w-20 h-20">
                             <polygon points="50,15 15,50 85,50" fill="#e74c3c"/>
                             <rect x="25" y="50" width="50" height="40" fill="#f1c40f"/>
@@ -165,12 +164,14 @@
                             <rect x="56" y="56" width="12" height="12" fill="#e0f7fa"/>
                         </svg>
                     </div>
-                    <div class="text-center font-bold text-gray-500 mb-3 text-lg">gia đình</div>
+                    <div class="text-center mb-3">
+                        <span class="text-3xl font-bold text-[#2c3e50] tracking-wide block">gia đình</span>
+                    </div>
                     <div class="flex gap-3 w-full">
                         <button onclick="playAudio('gia.aac')" class="flex-1 bg-gradient-to-r from-[#ffeb3b] to-[#ff9800] hover:from-[#ff9800] hover:to-[#e67e22] text-white font-bold text-lg py-3 px-2 rounded-xl border-b-4 border-[#d35400] active:border-b-0 active:translate-y-1 transition-all flex items-center justify-center gap-1">
                             Cô đọc 🔊
                         </button>
-                        <button onclick="startListening('gia', 'gia_danh_van.aac')" class="flex-1 bg-gradient-to-r from-[#3498db] to-[#1abc9c] hover:from-[#2980b9] hover:to-[#16a085] text-white font-bold text-lg py-3 px-2 rounded-xl border-b-4 border-[#1f3a52] active:border-b-0 active:translate-y-1 transition-all flex items-center justify-center gap-1">
+                        <button onclick="startListening('gia', 'gia_danh_van.aac', 'gia đình')" class="flex-1 bg-gradient-to-r from-[#3498db] to-[#1abc9c] hover:from-[#2980b9] hover:to-[#16a085] text-white font-bold text-lg py-3 px-2 rounded-xl border-b-4 border-[#1f3a52] active:border-b-0 active:translate-y-1 transition-all flex items-center justify-center gap-1">
                             Bé nói 🎙️
                         </button>
                     </div>
@@ -179,7 +180,6 @@
             </div>
         </div>
 
-        <!-- PHẦN 3: L vs N -->
         <div class="mb-6 bg-[#f0faff] p-6 rounded-[24px] border-4 border-dashed border-[#3498db] relative">
             <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#3498db] to-[#2980b9] text-white font-bold text-xl px-8 py-2 rounded-full shadow-[0_4px_0_#1b4f72]">
                 ☁️ Phân biệt "l" và "n" ☁️
@@ -189,7 +189,6 @@
                 <!-- Từ LA -->
                 <div id="card-la" class="bg-white rounded-2xl border-3 border-gray-200 p-5 shadow-[0_6px_0_#e0e0e0] flex flex-col items-center transition-all duration-300">
                     <div class="w-28 h-28 bg-[#fff9e6] border-4 border-[#f1c40f] rounded-2xl flex items-center justify-center mb-4 shadow-[0_4px_0_#f1c40f]">
-                        <!-- SVG Loa phát thanh -->
                         <svg viewBox="0 0 100 100" class="w-20 h-20">
                             <path d="M20 40 L40 40 L65 20 L65 80 L40 60 L20 60 Z" fill="#78909c"/>
                             <rect x="12" y="43" width="8" height="14" rx="3" fill="#37474f"/>
@@ -197,12 +196,14 @@
                             <path d="M80 30 Q92 50 80 70" stroke="#ff5722" stroke-width="4" fill="none" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <div class="text-center font-bold text-gray-500 mb-3 text-lg">hét la</div>
+                    <div class="text-center mb-3">
+                        <span class="text-3xl font-bold text-[#2c3e50] tracking-wide block">hét la</span>
+                    </div>
                     <div class="flex gap-3 w-full">
                         <button onclick="playAudio('la.aac')" class="flex-1 bg-gradient-to-r from-[#ffeb3b] to-[#ff9800] hover:from-[#ff9800] hover:to-[#e67e22] text-white font-bold text-lg py-3 px-2 rounded-xl border-b-4 border-[#d35400] active:border-b-0 active:translate-y-1 transition-all flex items-center justify-center gap-1">
                             Cô đọc 🔊
                         </button>
-                        <button onclick="startListening('la', 'la_danh_van.aac')" class="flex-1 bg-gradient-to-r from-[#3498db] to-[#1abc9c] hover:from-[#2980b9] hover:to-[#16a085] text-white font-bold text-lg py-3 px-2 rounded-xl border-b-4 border-[#1f3a52] active:border-b-0 active:translate-y-1 transition-all flex items-center justify-center gap-1">
+                        <button onclick="startListening('la', 'la_danh_van.aac', 'hét la')" class="flex-1 bg-gradient-to-r from-[#3498db] to-[#1abc9c] hover:from-[#2980b9] hover:to-[#16a085] text-white font-bold text-lg py-3 px-2 rounded-xl border-b-4 border-[#1f3a52] active:border-b-0 active:translate-y-1 transition-all flex items-center justify-center gap-1">
                             Bé nói 🎙️
                         </button>
                     </div>
@@ -212,7 +213,6 @@
                 <!-- Từ NA -->
                 <div id="card-na" class="bg-white rounded-2xl border-3 border-gray-200 p-5 shadow-[0_6px_0_#e0e0e0] flex flex-col items-center transition-all duration-300">
                     <div class="w-28 h-28 bg-[#fff9e6] border-4 border-[#f1c40f] rounded-2xl flex items-center justify-center mb-4 shadow-[0_4px_0_#f1c40f]">
-                        <!-- SVG Quả Na mắt tròn dễ thương -->
                         <svg viewBox="0 0 100 100" class="w-20 h-20">
                             <circle cx="50" cy="55" r="32" fill="#81c784"/>
                             <circle cx="40" cy="40" r="8" fill="#4caf50"/>
@@ -226,12 +226,14 @@
                             <path d="M50 15 Q65 12 60 22" fill="#2e7d32"/>
                         </svg>
                     </div>
-                    <div class="text-center font-bold text-gray-500 mb-3 text-lg">quả na</div>
+                    <div class="text-center mb-3">
+                        <span class="text-3xl font-bold text-[#2c3e50] tracking-wide block">quả na</span>
+                    </div>
                     <div class="flex gap-3 w-full">
                         <button onclick="playAudio('na.aac')" class="flex-1 bg-gradient-to-r from-[#ffeb3b] to-[#ff9800] hover:from-[#ff9800] hover:to-[#e67e22] text-white font-bold text-lg py-3 px-2 rounded-xl border-b-4 border-[#d35400] active:border-b-0 active:translate-y-1 transition-all flex items-center justify-center gap-1">
                             Cô đọc 🔊
                         </button>
-                        <button onclick="startListening('na', 'na_danh_van.aac')" class="flex-1 bg-gradient-to-r from-[#3498db] to-[#1abc9c] hover:from-[#2980b9] hover:to-[#16a085] text-white font-bold text-lg py-3 px-2 rounded-xl border-b-4 border-[#1f3a52] active:border-b-0 active:translate-y-1 transition-all flex items-center justify-center gap-1">
+                        <button onclick="startListening('na', 'na_danh_van.aac', 'quả na')" class="flex-1 bg-gradient-to-r from-[#3498db] to-[#1abc9c] hover:from-[#2980b9] hover:to-[#16a085] text-white font-bold text-lg py-3 px-2 rounded-xl border-b-4 border-[#1f3a52] active:border-b-0 active:translate-y-1 transition-all flex items-center justify-center gap-1">
                             Bé nói 🎙️
                         </button>
                     </div>
@@ -242,22 +244,44 @@
 
     </div>
 
+    <div id="custom-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl border-4 border-[#ffcc00] p-6 max-w-sm w-full text-center shadow-2xl">
+            <div class="text-5xl mb-3">⚠️</div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2" id="modal-title">Thông báo</h3>
+            <p class="text-gray-600 mb-6 font-medium" id="modal-message">Nội dung thông báo ở đây.</p>
+            <button onclick="closeModal()" class="w-full bg-gradient-to-r from-[#ffeb3b] to-[#ff9800] hover:from-[#ff9800] text-white font-bold text-lg py-3 rounded-xl border-b-4 border-[#d35400] active:border-b-0 active:translate-y-1 transition-all">
+                Đã hiểu ạ!
+            </button>
+        </div>
+    </div>
+
     <script>
-        // Hàm kích hoạt phát file âm thanh giọng cô đọc trơn bình thường
+        // Hàm hiển thị modal thông báo tùy chỉnh thay thế alert()
+        function showModal(title, message) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-message').innerText = message;
+            document.getElementById('custom-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('custom-modal').classList.add('hidden');
+        }
+
+        // Hàm phát âm thanh thực tế đuôi .aac từ bộ nhớ GitHub của giáo viên
         function playAudio(audioFile) {
             const audio = new Audio(audioFile);
             audio.play().catch(function(error) {
-                console.log("Không tìm thấy file: " + audioFile);
+                console.log("Không tìm thấy tệp âm thanh: " + audioFile);
             });
         }
 
-        // Cấu hình SpeechSynthesis để hệ thống AI phát tiếng nhận xét (Đúng / Chưa đúng)
+        // Phát giọng nói phản hồi hệ thống (Đọc đúng / Chưa đúng) qua TTS
         function speakFeedback(text, callback) {
             if ('speechSynthesis' in window) {
                 const utterance = new SpeechSynthesisUtterance(text);
                 utterance.lang = 'vi-VN'; 
                 utterance.rate = 1.0; 
-                utterance.pitch = 1.25; // Giọng cao dễ thương cho trẻ em
+                utterance.pitch = 1.2; // Giọng cao, trong trẻo, dễ mến
 
                 const voices = window.speechSynthesis.getVoices();
                 const viVoice = voices.find(v => v.lang.includes('vi') || v.lang.includes('VI'));
@@ -266,7 +290,7 @@
                 }
 
                 if (callback) {
-                    utterance.onend = callback; // Gọi callback ngay khi giọng hệ thống vừa dứt
+                    utterance.onend = callback;
                 }
                 window.speechSynthesis.speak(utterance);
             } else {
@@ -274,83 +298,98 @@
             }
         }
 
-        // Chức năng AI chấm điểm giọng phát âm của Bé
-        function startListening(targetWord, spellingAudio) {
+        function checkStrictPronunciation(targetWord, spokenText) {
+            // Chuẩn hóa văn bản bé đọc (viết thường, loại bỏ các ký tự dấu câu thừa)
+            const cleanSpoken = spokenText.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").trim();
+            
+            // KIỂM TRA CHỮ "CHA" (Đích bắt buộc bé đọc cả cụm "cha mẹ")
+            if (targetWord === 'cha') {
+                // Phải chứa từ "cha" hoặc "mẹ" và TUYỆT ĐỐI không được chứa từ "tra" (bị đọc lệch thành tra mẹ)
+                return (cleanSpoken.includes("cha") || cleanSpoken.includes("mẹ")) && !cleanSpoken.includes("tra") && !cleanSpoken.includes("ra");
+            }
+            
+            // KIỂM TRA CHỮ "TRA" (Đích bắt buộc bé đọc cả cụm "tra hạt")
+            if (targetWord === 'tra') {
+                // Phải chứa từ "tra" hoặc "hạt" và TUYỆT ĐỐI không được chứa các từ đọc sai như "cha", "ca"
+                return (cleanSpoken.includes("tra") || cleanSpoken.includes("hạt")) && !cleanSpoken.includes("cha") && !cleanSpoken.includes("ca") && !cleanSpoken.includes("xa");
+            }
+            
+            // KIỂM TRA CHỮ "DA" (Đích bắt buộc bé đọc cả cụm "làn da")
+            if (targetWord === 'da') {
+                // Phải chứa cụm "làn da" hoặc từ "da" và TUYỆT ĐỐI không được nhận nhầm thành "gia" (gia đình)
+                return (cleanSpoken.includes("làn da") || cleanSpoken.includes("da")) && !cleanSpoken.includes("gia") && !cleanSpoken.includes("đình");
+            }
+            
+            // KIỂM TRA CHỮ "GIA" (Đích bắt buộc bé đọc cả cụm "gia đình")
+            if (targetWord === 'gia') {
+                // Phải chứa cụm "gia đình" hoặc từ "gia" và TUYỆT ĐỐI không được nhầm thành "da" (làn da)
+                return (cleanSpoken.includes("gia đình") || cleanSpoken.includes("gia")) && !cleanSpoken.includes("làn da") && !cleanSpoken.includes("làn");
+            }
+            
+            // KIỂM TRA CHỮ "LA" (Đích bắt buộc bé đọc cả cụm "hét la")
+            if (targetWord === 'la') {
+                // Phải chứa từ "la" hoặc "hét" và TUYỆT ĐỐI không được lẫn lộn sang âm n "na"
+                return (cleanSpoken.includes("la") || cleanSpoken.includes("hét")) && !cleanSpoken.includes("na");
+            }
+            
+            // KIỂM TRA CHỮ "NA" (Đích bắt buộc bé đọc cả cụm "quả na")
+            if (targetWord === 'na') {
+                // Phải chứa từ "na" hoặc "quả" và TUYỆT ĐỐI không được lẫn lộn sang âm l "la"
+                return (cleanSpoken.includes("na") || cleanSpoken.includes("quả")) && !cleanSpoken.includes("la");
+            }
+            
+            return false;
+        }
+
+        function startListening(targetWord, spellingAudio, fullPhrase) {
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
             
             if (!SpeechRecognition) {
-                alert("Trình duyệt của bạn chưa hỗ trợ AI chấm điểm. Bé hãy dùng Google Chrome trên điện thoại hoặc máy tính nhé!");
+                showModal("Lỗi thiết bị", "Trình duyệt của bạn chưa hỗ trợ AI nhận diện. Bé hãy dùng Google Chrome trên điện thoại hoặc máy tính để trải nghiệm nhé!");
                 return;
             }
 
             const card = document.getElementById('card-' + targetWord);
             const statusText = document.getElementById('status-' + targetWord);
             
-            // Đổi trạng thái giao diện chuẩn bị ghi âm
-            statusText.innerText = "🎙️ Đang lắng nghe bé đọc...";
+            // Thay đổi giao diện thông báo trạng thái bé đang đọc
+            statusText.innerText = "🎙️ Đang nghe bé đọc cụm: \"" + fullPhrase + "\"...";
             statusText.className = "mt-4 text-sm font-semibold text-[#3498db] animate-pulse";
             card.className = "bg-white rounded-2xl border-3 border-[#3498db] p-5 shadow-[0_6px_0_#3498db] flex flex-col items-center transition-all duration-300";
             
             const recognition = new SpeechRecognition();
-            recognition.lang = 'vi-VN';
+            recognition.lang = 'vi-VN'; // Cấu hình nhận giọng tiếng Việt chuẩn
             recognition.interimResults = false;
             recognition.maxAlternatives = 1;
 
             recognition.start();
 
-            // Xử lý khi nhận được giọng nói của bé
+            // Nhận kết quả và chấm điểm nghiêm ngặt
             recognition.onresult = function(event) {
-                const spokenText = event.results[0][0].transcript.toLowerCase().trim();
-                console.log("Bé nói: " + spokenText + " | Mục tiêu: " + targetWord);
+                const spokenText = event.results[0][0].transcript;
+                console.log("Bé đã nói: " + spokenText + " | Đích cần phân biệt: " + targetWord);
 
-                // Chuẩn hóa chuỗi tránh lệch dấu câu
-                const cleanSpoken = spokenText.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+                // Gọi bộ lọc kiểm tra nghiêm ngặt phân biệt âm đầu
+                const isCorrect = checkStrictPronunciation(targetWord, spokenText);
                 
-                // Thuật toán kiểm tra so khớp
-                if (cleanSpoken === targetWord) {
+                if (isCorrect) {
                     // 1. NẾU BÉ PHÁT ÂM ĐÚNG
                     statusText.innerText = "🎉 Tuyệt vời! Bé đọc ĐÚNG rồi!";
                     statusText.className = "mt-4 text-sm font-semibold text-[#4caf50]";
                     card.className = "bg-white rounded-2xl border-3 border-[#4caf50] p-5 shadow-[0_6px_0_#4caf50] flex flex-col items-center transition-all duration-300";
 
-                    // Bắn pháo hoa ăn mừng
+                    // Kích hoạt pháo hoa ăn mừng
                     confetti({
-                        particleCount: 100,
-                        spread: 70,
+                        particleCount: 120,
+                        spread: 80,
                         origin: { y: 0.6 }
                     });
 
-                    // Hệ thống AI khen bé
+                    // AI phát giọng động viên bé
                     speakFeedback("Đúng rồi! Bé phát âm giỏi lắm!");
 
                 } else {
-                    // 2. NẾU BÉ PHÁT ÂM SAI / CHƯA ĐÚNG
-                    statusText.innerText = "💪 Chưa đúng! Hãy nghe cô đánh vần nha.";
+                    // 2. NẾU BÉ PHÁT ÂM SAI / LỆCH ÂM ĐẦU
+                    statusText.innerText = "💪 Chưa đúng! Hãy nghe cô hướng dẫn nha.";
                     statusText.className = "mt-4 text-sm font-semibold text-[#e74c3c]";
                     card.className = "bg-white rounded-2xl border-3 border-[#e74c3c] p-5 shadow-[0_6px_0_#e74c3c] flex flex-col items-center transition-all duration-300";
-
-                    // Giọng AI nói ngắn gọn "Chưa đúng rồi!", dứt lời là phát ngay file ghi âm của anh/chị
-                    speakFeedback("Chưa đúng rồi!", function() {
-                        playAudio(spellingAudio); // Phát file đánh vần giọng thật cô giáo
-                    });
-                }
-            };
-
-            // Xử lý khi micro lỗi hoặc bé không nói gì
-            recognition.onerror = function(event) {
-                console.log("Lỗi microphone: " + event.error);
-                statusText.innerText = "❌ Chưa nghe rõ, bé bấm nói lại nha!";
-                statusText.className = "mt-4 text-sm font-semibold text-orange-500";
-                card.className = "bg-white rounded-2xl border-3 border-gray-200 p-5 shadow-[0_6px_0_#e0e0e0] flex flex-col items-center transition-all duration-300";
-            };
-        }
-
-        // Tải trước voice tiếng Việt của trình duyệt tránh bị trễ tiếng khi phản hồi
-        if ('speechSynthesis' in window) {
-            window.speechSynthesis.onvoiceschanged = function() {
-                window.speechSynthesis.getVoices();
-            };
-        }
-    </script>
-</body>
-</html>
